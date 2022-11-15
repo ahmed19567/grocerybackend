@@ -21,16 +21,14 @@ app.use(express.urlencoded())
 app.get('/',authorize ,(req,res)=>{
     res.send("hello")
 })
- 
+ console.log(process.env.NODE_ENV)
 app.use('/produce', produceRouter)
 app.use('/register', registerRouter)
 app.use('/login', loginRouter)
 app.use('/payment', authorize,paymentRouter)
 
  
-
-
-app.listen(port, ()=>{
+ app.listen(port, ()=>{
     console.log(`i am listening on ${port}`)
 })
  
